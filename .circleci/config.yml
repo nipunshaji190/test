@@ -7,7 +7,7 @@ jobs:
       - image: circleci/python:3.8
     steps:
       - checkout
-      - run: $TESTS = $(mktemp _test.txt.XXXXXX)
+      - run: $TESTS=$(mktemp _test.txt.XXXXXX)
       - run: echo $TESTS
 workflows:
   welcome:
