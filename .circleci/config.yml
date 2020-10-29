@@ -11,8 +11,11 @@ jobs:
           name: testing
           command: |
             TESTS=$(mktemp _test.txt.XXXXXX)
+            echo "printing file"
+            cat $TESTS
             echo "export TEST=$TESTS" >> $BASH_ENV
       - run: cp test.txt $TEST
+      - run: cat $TEST
 workflows:
   welcome:
     jobs:
