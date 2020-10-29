@@ -7,8 +7,12 @@ jobs:
       - image: circleci/python:3.8
     steps:
       - checkout
-      - run: TESTS=$(mktemp _test.txt.XXXXXX)
-      - run: cp test.txt $TESTS
+      - run: 
+          name: testing
+          command: |
+            TESTS=$(mktemp _test.txt.XXXXXX)
+            echo "export TEST=$TESTS" >> $BASH_ENV
+      - run: cp test.txt $TEST
 workflows:
   welcome:
     jobs:
